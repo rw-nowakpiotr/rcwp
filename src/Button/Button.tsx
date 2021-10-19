@@ -23,7 +23,8 @@ const colors = {
 type ButtonProps = {
   label: string;
   // bgColor?: BGColors;
-  bgColor: "concrete" | "alizarin" | "orange" | "emerald"
+  bgColor: "concrete" | "alizarin" | "orange" | "emerald",
+  // Array<keyof typeof colors>
 };
 
 const defaultStyles = {
