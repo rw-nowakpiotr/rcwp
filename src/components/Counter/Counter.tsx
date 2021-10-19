@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Text } from 'Text/Text';
+import { Text } from 'components/Text/Text';
 
 function Counter() {
   const [value, setValue] = useState<number>(0);
