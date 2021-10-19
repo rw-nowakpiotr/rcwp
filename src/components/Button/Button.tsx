@@ -27,6 +27,7 @@ type ButtonProps = {
   // bgColor?: BGColors;
   bgColor: "concrete" | "alizarin" | "orange" | "emerald",
   // Array<keyof typeof colors>
+  onClick?: () => void,
 };
 
 const defaultStyles = {
@@ -40,10 +41,10 @@ const defaultStyles = {
 // function Button(props: ButtonProps) {
 // function Button({ label }: ButtonProps) {
 function Button(props: ButtonProps) {
-  const { label, bgColor } = props;
+  const { label, bgColor, onClick } = props;
   const styles = { ...defaultStyles, backgroundColor: colors[bgColor] };
   return (
-    <button style={styles}>
+    <button style={styles} onClick={onClick}>
       {label}
     </button>
   );
