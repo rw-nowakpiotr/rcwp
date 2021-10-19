@@ -1,14 +1,24 @@
+import { useState, useEffect } from 'react';
 import { Text } from 'Text/Text';
 
 function Counter() {
-  let value = 1;
-  const handleClick = () => {
-    value++;
-    console.log(value);
-  }
+  const [value, setValue] = useState<number>(0);
+
+  useEffect(() => {
+    // effect instructions
+    const clock = setInterval(() => {
+      setValue(value => value + 1);
+    }, 1_000);
+
+    return () => {
+      // after unmountig
+      clearInterval(clock);
+    }
+
+  }, []); // [] - array of dependecies
+
   return (
     <div>
-      <button onClick={handleClick}>Click me</button>
       <Text>{value}</Text>
     </div>
   );
