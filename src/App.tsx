@@ -1,5 +1,5 @@
-// import { Button, BGColors } from './Button/Button';
-import { Counter } from 'components/Counter/Counter';
+// import { Button, BGColors } from './Button';
+import { Counter } from 'components/Counter';
 
 function App() {
   return (
