@@ -7,12 +7,16 @@ import { Hello } from 'components/Hello';
 
 function App() {
   const [name, setName] = useState<string | null>(null);
+  const [age, setAge] = useState<number>(0);
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value); // event.currentTarget
   }
   // const handleChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
   //   setName(event.currentTarget.value);
   // };
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+    setAge((_age) => _age + 1);
+  }
 
   return (
     <div className="App">
@@ -20,7 +24,8 @@ function App() {
       <Generator />
       <RegistrationForm defaultEmail="test@test.pl" /> */}
       <input type="text" onChange={handleInputChange} />
-      <Hello name={name || ""} age={36} />
+      <button onClick={handleClick}>+</button>
+      <Hello name={name || ""} age={age} />
     </div>
   );
 }

@@ -16,7 +16,10 @@ function Hello(props: HelloProps) {
   return (
     <div style={styles}>
       <h1>I am Hello component</h1>
-      <p>Hello, my name is {name} I'am {age}</p>
+      <div>
+        <p>Hello, my name is {name}</p>
+        <p>I'am {age}</p>
+      </div>
       <p>Another paragraph</p>
     </div>
   );
