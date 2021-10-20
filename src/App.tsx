@@ -11,7 +11,7 @@ import { UserCard } from 'components/User/UserCard';
 function App() {
   const [name, setName] = useState<string | null>(null);
   const [age, setAge] = useState<number>(0);
-  const [isLogged, seIsLogged] = useState<boolean>(true);
+  const [isLogged, seIsLogged] = useState<boolean>(false);
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value); // event.currentTarget
   }
@@ -20,6 +20,9 @@ function App() {
   // };
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
     setAge((_age) => _age + 1);
+  }
+  const loginHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
+    seIsLogged((value) => !value);
   }
 
   return (
@@ -34,11 +37,13 @@ function App() {
       <Container>
         <Container>
           <Main>
+            <button onClick={loginHandler}>{isLogged ? 'Log out' : 'Log in'}</button>
             <UserCard
               email="patryk.omiotek@gmail.com"
               isLogged={isLogged}
             />
-            <Hello name={name || ""} age={age} />
+            {/* {isLogged ? <Hello name={name || ""} age={age} /> : null} */}
+            {isLogged && <Hello name={name || ""} age={age} />}
           </Main>
         </Container>
       </Container>
