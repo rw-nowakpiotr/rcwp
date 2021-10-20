@@ -1,14 +1,20 @@
 import { UserProfile } from './UserProfile';
 
+import './User.css';
+
 type UserCardProps = {
   email: string;
+  isLogged: boolean;
 }
 
-function UserCard({ email }: UserCardProps) {
+function UserCard({ email, isLogged }: UserCardProps) {
   return (
-    <div>
+    <div className="ml">
       <h2>User Card</h2>
-      <UserProfile email={email} />
+      <UserProfile
+        email={email}
+        isLogged={isLogged}
+      />
     </div>
   );
 }

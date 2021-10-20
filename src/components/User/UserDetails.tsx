@@ -1,12 +1,16 @@
+import './User.css';
+
 type UserDetailsProps = {
   email: string;
+  isLogged: boolean;
 }
 
-function UserDetails({ email }: UserDetailsProps) {
+function UserDetails({ email, isLogged }: UserDetailsProps) {
   return (
-    <div>
+    <div className="ml">
       <h4>User Details</h4>
       <p>E-mail: {email}</p>
+      <p><strong>{isLogged ? 'Yes' : 'No'}</strong></p>
     </div>
   );
 }

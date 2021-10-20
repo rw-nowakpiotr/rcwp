@@ -11,7 +11,7 @@ import { UserCard } from 'components/User/UserCard';
 function App() {
   const [name, setName] = useState<string | null>(null);
   const [age, setAge] = useState<number>(0);
-  const [isLogged, seIsLogged] = useState<boolean>(false);
+  const [isLogged, seIsLogged] = useState<boolean>(true);
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value); // event.currentTarget
   }
@@ -34,7 +34,10 @@ function App() {
       <Container>
         <Container>
           <Main>
-            <UserCard email="patryk.omiotek@gmail.com" />
+            <UserCard
+              email="patryk.omiotek@gmail.com"
+              isLogged={isLogged}
+            />
             <Hello name={name || ""} age={age} />
           </Main>
         </Container>
