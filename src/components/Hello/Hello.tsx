@@ -1,3 +1,6 @@
+// import styles from './Hello.modules.css';
+import './Hello.css';
+
 type HelloProps = {
   readonly name: string;
   readonly age: number;
@@ -6,15 +9,17 @@ type HelloProps = {
 
 // <Hello name="Patryk" age={36} isAlive />
 
-const styles = {
-  border: '#000 1px solid',
-  margin: 5,
-}
+// const styles = {
+//   border: '#000 1px solid',
+//   margin: 5,
+// }
 
 function Hello(props: HelloProps) {
   const { name, age } = props;
   return (
-    <div style={styles}>
+    // <div style={styles}>
+    // <div className={styles.Button}>
+    <div className="Hello">
       <h1>I am Hello component</h1>
       <div>
         <p>Hello, my name is {name}</p>
