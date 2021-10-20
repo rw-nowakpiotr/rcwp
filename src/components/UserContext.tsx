@@ -1,4 +1,4 @@
-import { createContext, SetStateAction } from 'react';
+import { useContext, createContext, SetStateAction } from 'react';
 import type { Dispatch } from 'react';
 
 type UserContextProps = {
@@ -18,4 +18,15 @@ const UserConsumer = UserContext.Consumer; // <Consumer>
 
 UserContext.displayName = 'UserContext';
 
-export { UserProvider, UserContext, UserConsumer };
+function useUserContext() {
+  return useContext(UserContext);
+  // useState -> [0, 1]
+  // useEffect -> () => ()
+}
+
+export {
+  useUserContext,
+  UserProvider,
+  UserContext,
+  UserConsumer
+};

@@ -1,6 +1,4 @@
-import { useContext } from 'react'
-
-import { UserContext } from 'components/UserContext';
+import { useUserContext } from 'components/UserContext';
 import './User.css';
 
 type UserDetailsProps = {
@@ -9,7 +7,7 @@ type UserDetailsProps = {
 }
 
 function UserDetails({ email, isLogged }: UserDetailsProps) {
-  const context = useContext(UserContext);
+  const context = useUserContext();
   return (
     <div className="ml">
       <h4>User Details</h4>

@@ -1,9 +1,7 @@
-import { useContext } from 'react'
-
-import { UserContext } from 'components/UserContext';
+import { useUserContext } from 'components/UserContext';
 
 function LoginButton() {
-  const context = useContext(UserContext);
+  const context = useUserContext();
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
     context.setIsLogged((value) => !value);
   }
