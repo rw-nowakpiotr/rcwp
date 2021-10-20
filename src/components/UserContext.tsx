@@ -10,8 +10,9 @@ const defaultValues: UserContextProps = {
 
 const UserContext = createContext<UserContextProps>(defaultValues);
 
-const UserProvider = UserContext.Provider;
-const UserConsumer = UserContext.Consumer;
-// UserProvider.displayName = 'UserProvider';
+const UserProvider = UserContext.Provider; // <Provider>
+const UserConsumer = UserContext.Consumer; // <Consumer>
+
+UserContext.displayName = 'UserContext';
 
 export { UserProvider, UserContext, UserConsumer };

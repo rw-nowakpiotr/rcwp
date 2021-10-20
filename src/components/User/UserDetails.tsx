@@ -1,3 +1,6 @@
+import { useContext } from 'react'
+
+import { UserContext } from 'components/UserContext';
 import './User.css';
 
 type UserDetailsProps = {
@@ -6,6 +9,8 @@ type UserDetailsProps = {
 }
 
 function UserDetails({ email, isLogged }: UserDetailsProps) {
+  const context = useContext(UserContext);
+  console.log('context: ', context);
   return (
     <div className="ml">
       <h4>User Details</h4>

@@ -7,6 +7,7 @@ import { Hello } from 'components/Hello';
 import { Container } from 'components/Container';
 import { Main } from 'components/Main';
 import { UserCard } from 'components/User/UserCard';
+import { UserProvider } from 'components/UserContext';
 
 function App() {
   const [name, setName] = useState<string | null>(null);
@@ -26,28 +27,30 @@ function App() {
   }
 
   return (
-    <Container>
-      {/* <Counter />
-      <Generator />
-      <RegistrationForm defaultEmail="test@test.pl" /> */}
+    <UserProvider value={ { isLogged: false }}>
       <Container>
-        <input type="text" onChange={handleInputChange} />
-        <button onClick={handleClick}>+</button>
-      </Container>
-      <Container>
+        {/* <Counter />
+        <Generator />
+        <RegistrationForm defaultEmail="test@test.pl" /> */}
         <Container>
-          <Main>
-            <button onClick={loginHandler}>{isLogged ? 'Log out' : 'Log in'}</button>
-            <UserCard
-              email="patryk.omiotek@gmail.com"
-              isLogged={isLogged}
-            />
-            {/* {isLogged ? <Hello name={name || ""} age={age} /> : null} */}
-            {isLogged && <Hello name={name || ""} age={age} />}
-          </Main>
+          <input type="text" onChange={handleInputChange} />
+          <button onClick={handleClick}>+</button>
+        </Container>
+        <Container>
+          <Container>
+            <Main>
+              <button onClick={loginHandler}>{isLogged ? 'Log out' : 'Log in'}</button>
+              <UserCard
+                email="patryk.omiotek@gmail.com"
+                isLogged={isLogged}
+              />
+              {/* {isLogged ? <Hello name={name || ""} age={age} /> : null} */}
+              {isLogged && <Hello name={name || ""} age={age} />}
+            </Main>
+          </Container>
         </Container>
       </Container>
-    </Container>
+    </UserProvider>
   );
 }
 
