@@ -4,6 +4,8 @@
 // import { RegistrationForm } from 'components/RegistrationForm';
 import React, { useState } from 'react';
 import { Hello } from 'components/Hello';
+import { Container } from 'components/Container';
+import { Main } from 'components/Main';
 
 function App() {
   const [name, setName] = useState<string | null>(null);
@@ -19,14 +21,22 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <Container>
       {/* <Counter />
       <Generator />
       <RegistrationForm defaultEmail="test@test.pl" /> */}
-      <input type="text" onChange={handleInputChange} />
-      <button onClick={handleClick}>+</button>
-      <Hello name={name || ""} age={age} />
-    </div>
+      <Container>
+        <input type="text" onChange={handleInputChange} />
+        <button onClick={handleClick}>+</button>
+      </Container>
+      <Container>
+        <Container>
+          <Main>
+            <Hello name={name || ""} age={age} />
+          </Main>
+        </Container>
+      </Container>
+    </Container>
   );
 }
 
