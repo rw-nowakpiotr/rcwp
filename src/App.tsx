@@ -6,9 +6,9 @@ import React, { useState } from 'react';
 import { Hello } from 'components/Hello';
 import { Container } from 'components/Container';
 import { Main } from 'components/Main';
-import { UserCard } from 'components/User/UserCard';
+
 import { UserProvider } from 'components/UserContext';
-import { LoginButton } from 'components/User/LoginButton';
+import { UserCard, LoginButton } from 'components/User';
 
 function App() {
   const [name, setName] = useState<string | null>(null);
