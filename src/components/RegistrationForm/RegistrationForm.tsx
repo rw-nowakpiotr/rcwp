@@ -16,7 +16,7 @@ function RegistrationForm({ defaultEmail }: RegistrationFormProps) {
     } else {
       console.log('Haslo ok');
     }
-  }, [password]);
+  }, [password]); // componentDidUpdate
   return (
     <div>
       <div>

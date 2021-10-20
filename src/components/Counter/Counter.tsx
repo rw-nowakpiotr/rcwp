@@ -10,12 +10,12 @@ function Counter() {
       setValue(value => value + 1);
     }, 1_000);
 
-    return () => {
+    return () => { // componentWillUnmount
       // after unmountig
       clearInterval(clock);
     }
 
-  }, []); // [] - array of dependecies
+  }, []); // [] - array of dependecies, componentDidMount
 
   return (
     <div>
