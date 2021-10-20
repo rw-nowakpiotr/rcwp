@@ -27,7 +27,7 @@ type ButtonProps = {
   // bgColor?: BGColors;
   bgColor: "concrete" | "alizarin" | "orange" | "emerald",
   // Array<keyof typeof colors>
-  onClick?: () => void,
+  onClick?: React.MouseEventHandler,
 };
 
 const defaultStyles = {

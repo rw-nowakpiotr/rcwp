@@ -7,6 +7,8 @@ import { Button } from 'components/Button';
 
 function Generator() {
   const [value, setValue] = useState<string>(uuidv4());
+  // React.FormEvent
+  // React.ChangeEvent
   const handleClick = (event: React.MouseEvent) => {
     console.log(event);
     // value
