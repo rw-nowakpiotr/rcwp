@@ -5,17 +5,20 @@ import './User.css';
 
 type UserDetailsProps = {
   email: string;
-  isLogged: boolean;
+  isLogged: boolean; // props from parent
 }
 
 function UserDetails({ email, isLogged }: UserDetailsProps) {
   const context = useContext(UserContext);
-  console.log('context: ', context);
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+    context.setIsLogged((value) => !value);
+  }
   return (
     <div className="ml">
       <h4>User Details</h4>
       <p>E-mail: {email}</p>
-      <p><strong>{isLogged ? 'Yes' : 'No'}</strong></p>
+      <p><strong>{context.isLogged ? 'Yes' : 'No'}</strong></p>
+      <button onClick={handleClick}>{context.isLogged ? 'Log out' : 'Log in'}</button>
     </div>
   );
 }

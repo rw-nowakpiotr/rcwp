@@ -12,7 +12,7 @@ import { UserProvider } from 'components/UserContext';
 function App() {
   const [name, setName] = useState<string | null>(null);
   const [age, setAge] = useState<number>(0);
-  const [isLogged, seIsLogged] = useState<boolean>(false);
+  const [isLogged, setIsLogged] = useState<boolean>(false);
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value); // event.currentTarget
   }
@@ -23,11 +23,27 @@ function App() {
     setAge((_age) => _age + 1);
   }
   const loginHandler: React.MouseEventHandler<HTMLButtonElement> = () => {
-    seIsLogged((value) => !value);
+    setIsLogged((value) => !value);
+  }
+
+  const contextValues = {
+    isLogged,
+    setIsLogged,
   }
 
   return (
-    <UserProvider value={ { isLogged: false }}>
+      // <UserProvider
+      //   value={{
+      //     isLogged: isLoggedIn,
+      //     setIsLogged: () => {
+      //       setIsLoggedIn(!isLoggedIn);
+      //     },
+      //   }}
+      // >
+      //   <UserCard email="karol.berezicki@rockwool.com" />
+      // </UserProvider>
+
+    <UserProvider value={contextValues}>
       <Container>
         {/* <Counter />
         <Generator />

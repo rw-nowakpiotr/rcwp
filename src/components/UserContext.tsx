@@ -1,11 +1,14 @@
-import { createContext } from 'react';
+import { createContext, SetStateAction } from 'react';
+import type { Dispatch } from 'react';
 
 type UserContextProps = {
   isLogged: boolean;
+  setIsLogged: Dispatch<SetStateAction<boolean>>;
 }
 
 const defaultValues: UserContextProps = {
-  isLogged: false
+  isLogged: false,
+  setIsLogged: () => null,
 }
 
 const UserContext = createContext<UserContextProps>(defaultValues);
