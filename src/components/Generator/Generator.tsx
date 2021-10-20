@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -7,8 +7,8 @@ import { Button } from 'components/Button';
 
 function Generator() {
   const [value, setValue] = useState<string>(uuidv4());
-  const handleClick = () => {
-    // console.log(event);
+  const handleClick = (event: React.MouseEvent) => {
+    console.log(event);
     // value
     setValue(uuidv4());
   }
