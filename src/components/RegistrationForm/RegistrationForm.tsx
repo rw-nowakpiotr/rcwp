@@ -15,6 +15,11 @@ function RegistrationForm({ defaultEmail }: RegistrationFormProps) {
   const passwordDefaultValue = "razdwatrzy";
   const nameInputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
+    if (nameInputRef.current) {
+      nameInputRef.current.focus();
+    }
+  }, []); // try to remove en array
+  useEffect(() => {
     if (password?.toLocaleLowerCase() === 'brzydkieslowo') {
       setPassword('***');
       setIsValid(false);
