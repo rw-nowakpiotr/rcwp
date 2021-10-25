@@ -1,7 +1,7 @@
 // import { Button, BGColors } from './Button';
 // import { Counter } from 'components/Counter';
 // import { Generator } from 'components/Generator';
-// import { RegistrationForm } from 'components/RegistrationForm';
+import { RegistrationForm } from 'components/RegistrationForm';
 import React, { useState } from 'react';
 import { Hello } from 'components/Hello';
 import { Container } from 'components/Container';
@@ -47,26 +47,15 @@ function App() {
     <div>
       <UserProvider value={contextValues}>
         <Container>
+          <RegistrationForm defaultEmail="test@wp.pl" />
+          <hr />
           {/* <Counter />
           <Generator />
           <RegistrationForm defaultEmail="test@test.pl" /> */}
-          <Container>
+          {/* <Container>
             <input type="text" onChange={handleInputChange} />
             <button onClick={handleClick}>+</button>
-          </Container>
-          <Container>
-            <Container>
-              <Main>
-                <LoginButton />
-                <UserCard
-                  email="patryk.omiotek@gmail.com"
-                  isLogged={isLogged}
-                />
-                {/* {isLogged ? <Hello name={name || ""} age={age} /> : null} */}
-                {isLogged && <Hello name={name || ""} age={age} />}
-              </Main>
-            </Container>
-          </Container>
+          </Container> */}
         </Container>
       </UserProvider>
       <div>
@@ -77,3 +66,17 @@ function App() {
 }
 
 export default App;
+
+          // <Container>
+          //   <Container>
+          //     <Main>
+          //       <LoginButton />
+          //       <UserCard
+          //         email="patryk.omiotek@gmail.com"
+          //         isLogged={isLogged}
+          //       />
+          //       {/* {isLogged ? <Hello name={name || ""} age={age} /> : null} */}
+          //       {isLogged && <Hello name={name || ""} age={age} />}
+          //     </Main>
+          //   </Container>
+          // </Container>
