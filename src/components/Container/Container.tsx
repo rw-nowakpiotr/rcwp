@@ -4,7 +4,7 @@ type ContainerProps = {
 
 function Container({ children }: ContainerProps) {
   return (
-    <div>
+    <div style={{ marginTop: 20 }}>
       {children}
     </div>
   );
