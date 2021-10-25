@@ -2,7 +2,7 @@
 // import { Counter } from 'components/Counter';
 // import { Generator } from 'components/Generator';
 import { RegistrationForm } from 'components/RegistrationForm';
-import React, { useState } from 'react';
+import React, { MouseEventHandler, useState, useRef } from 'react';
 import { Hello } from 'components/Hello';
 import { Container } from 'components/Container';
 import { Main } from 'components/Main';
@@ -14,6 +14,7 @@ function App() {
   const [name, setName] = useState<string | null>(null);
   const [age, setAge] = useState<number>(0);
   const [isLogged, setIsLogged] = useState<boolean>(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value); // event.currentTarget
   }
@@ -30,6 +31,12 @@ function App() {
   const contextValues = {
     isLogged,
     setIsLogged,
+  }
+
+  const handleMouseOver: MouseEventHandler = () => {
+    if (buttonRef.current) {
+      buttonRef.current.style.backgroundColor = '#00f';
+    }
   }
 
   return (
@@ -59,7 +66,10 @@ function App() {
         </Container>
       </UserProvider>
       <div>
-        <LoginButton />
+        <LoginButton
+          ref={buttonRef}
+          handleMouseOver={handleMouseOver}
+        />
       </div>
     </div>
   );
