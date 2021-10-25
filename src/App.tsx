@@ -9,6 +9,7 @@ import { Main } from 'components/Main';
 
 import { UserProvider } from 'components/UserContext';
 import { UserCard, LoginButton } from 'components/User';
+import { Name } from 'components/Name';
 
 function App() {
   const [name, setName] = useState<string | null>(null);
@@ -54,6 +55,7 @@ function App() {
     <div>
       <UserProvider value={contextValues}>
         <Container>
+          <Name />
           <RegistrationForm defaultEmail="test@wp.pl" />
           <hr />
           {/* <Counter />
