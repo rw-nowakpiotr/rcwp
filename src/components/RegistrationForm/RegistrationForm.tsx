@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import type { ChangeEventHandler } from 'react';
 
 type RegistrationFormProps = {
   defaultEmail: string;
@@ -12,6 +13,7 @@ function RegistrationForm({ defaultEmail }: RegistrationFormProps) {
   const [name, setName] = useState<string>("");
   const [isValid, setIsValid] = useState<boolean>(true);
   const passwordDefaultValue = "razdwatrzy";
+  const nameInputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     if (password?.toLocaleLowerCase() === 'brzydkieslowo') {
       setPassword('***');
@@ -32,12 +34,25 @@ function RegistrationForm({ defaultEmail }: RegistrationFormProps) {
     }
   }, [email]);
   useEffect(() => {
-    console.log("Name value is: ", name);
     if (name === "aaa") {
       // bbb
-      setName("bbb")
+      // setName("bbb")
+      // event?.target.value
+      if (nameInputRef.current) {
+        nameInputRef.current.style.borderColor = '#ff0000';
+        nameInputRef.current.style.color = '#ff0000';
+        console.log(
+          'Here: ',
+          nameInputRef.current.value
+        );
+      }
     }
   }, [name]);
+
+  const handleNameChange:
+    ChangeEventHandler<HTMLInputElement> = (event) => {
+      setName(event.target.value);
+  }
 
   return (
     <div>
@@ -65,8 +80,9 @@ function RegistrationForm({ defaultEmail }: RegistrationFormProps) {
         <input
           id="name"
           type="text"
+          ref={nameInputRef}
           defaultValue=""
-          onChange={(event) => setName(event.target.value)}
+          onChange={handleNameChange}
         />
         {}
       </div>
