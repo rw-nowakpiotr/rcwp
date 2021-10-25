@@ -11,8 +11,8 @@ const data = [
 
 function Animals() {
   const [animals, setAnimals] = useState<string[]>(data);
-  const handleRemove = (index: number) => {
-    console.log('`My index is: ', index);
+  const handleRemove = (index: string) => {
+    setAnimals(animals.filter((elem) => elem !== index));
   }
   // const handleRemove: MouseEventHandler<HTMLSpanElement> = (event) => {
   //   console.log(event.currentTarget.dataset);
@@ -23,13 +23,14 @@ function Animals() {
   // }
   return (
     <>
-      {animals.map((elem, index) => {
+      {animals.map((elem) => {
         return (
-          <div>
+          <div key={elem}>
             {elem}{' '}
             <span
-              data-index={index}
-              onClick={() => handleRemove(index)}>⛔</span>
+              // data-index={index}
+              style={ { cursor: 'pointer' }}
+              onClick={() => handleRemove(elem)}>⛔</span>
             </div>
         );
       })}
